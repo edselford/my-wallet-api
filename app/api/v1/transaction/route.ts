@@ -22,6 +22,7 @@ export async function POST(req: Request) {
         }
 
         const transaction = await db.collection("transactions").find({
+            type: "transfer",
             $or: [
                 { sender: user_id },
                 { receiver: user_id },
